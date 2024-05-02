@@ -1,0 +1,50 @@
+.app-div {
+  width: 400px;
+  border: solid;
+  border-width: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*background-image: url("")*/
+}
+
+.name {
+  width: 350px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-family: "Courier New", Courier, monospace;
+  background-color: white;
+}
+
+.paragraph {
+  width: 350px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  background-color: white;
+}
+
+.skill-set {
+  width: 350px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.skill-card {
+  border: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+.skill-name {
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
