@@ -14,7 +14,13 @@ export default function App() {
 }
 
 function Avatar() {
-  return <img src="SOC-Avatar-RK.png" alt="SOC-Avatar-RK" width="400px" />;
+  return (
+    <img
+      src="personal-profile-pic.jpg"
+      alt="personal-profile-pic-RK"
+      width="400px"
+    />
+  );
 }
 
 function Name() {
