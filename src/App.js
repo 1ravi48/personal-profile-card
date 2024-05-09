@@ -1,6 +1,16 @@
 import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpenReader } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
+const skillsArray = [
+  { skill: "HTML+CSS", level: "expert", color: "rgb(255, 77, 210)" },
+  { skill: "JavaScript", level: "intermediate", color: "rgb(0, 179, 0)" },
+  { skill: "React", level: "intermediate", color: "red" },
+  { skill: "Express", level: "beginner", color: "rgb(77, 77, 255)" },
+  { skill: "SQL", level: "beginner", color: "yellow" },
+];
 
 export default function App() {
   return (
@@ -32,9 +42,9 @@ function Intro() {
     <p className="paragraph">
       Having worked as a secondary school physics teacher for most of my career,
       I'm now kickstarting my journey in the tech industry as a full-stack
-      developer. I enjoy spending my spare time producing electronic music,
-      watching YouTube videos and taking hot bubble baths (oh, and I'm also a
-      serious Harry Potter nerd).
+      developer. In my spare time, I enjoy producing electronic music, watching
+      YouTube videos and taking hot bubble baths (oh, and I'm also a serious
+      Harry Potter nerd).
     </p>
   );
 }
@@ -42,7 +52,11 @@ function Intro() {
 function SkillSet() {
   return (
     <div className="skill-set">
-      <SkillCard
+      {skillsArray.map((skill) => {
+        return <SkillCard skillObj={skill} />;
+      })}
+
+      {/*<SkillCard
         name="HTML+CSS"
         background={{ backgroundColor: "rgb(255, 77, 210)" }}
       />
@@ -55,17 +69,35 @@ function SkillSet() {
         name="Express"
         background={{ backgroundColor: "rgb(77, 77, 255)" }}
       />
-      <SkillCard name="SQL" background={{ backgroundColor: "yellow" }} />
+  <SkillCard name="SQL" background={{ backgroundColor: "yellow" }} />*/}
     </div>
   );
 }
 
-function SkillCard(props) {
-  return (
-    <div className="skill-card" style={props.background}>
-      <span className="skill-name">
-        {props.name} <FontAwesomeIcon icon={faDumbbell} />
-      </span>
-    </div>
-  );
+function SkillCard({ skillObj }) {
+  if (skillObj.level === "beginner") {
+    return (
+      <div className="skill-card" style={{ backgroundColor: skillObj.color }}>
+        <span className="skill-name">
+          {skillObj.skill} <FontAwesomeIcon icon={faBookOpenReader} />
+        </span>
+      </div>
+    );
+  } else if (skillObj.level === "intermediate") {
+    return (
+      <div className="skill-card" style={{ backgroundColor: skillObj.color }}>
+        <span className="skill-name">
+          {skillObj.skill} <FontAwesomeIcon icon={faDumbbell} />
+        </span>
+      </div>
+    );
+  } else {
+    return (
+      <div className="skill-card" style={{ backgroundColor: skillObj.color }}>
+        <span className="skill-name">
+          {skillObj.skill} <FontAwesomeIcon icon={faStar} />
+        </span>
+      </div>
+    );
+  }
 }
