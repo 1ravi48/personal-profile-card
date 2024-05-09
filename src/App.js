@@ -75,29 +75,18 @@ function SkillSet() {
 }
 
 function SkillCard({ skillObj }) {
-  if (skillObj.level === "beginner") {
-    return (
-      <div className="skill-card" style={{ backgroundColor: skillObj.color }}>
-        <span className="skill-name">
-          {skillObj.skill} <FontAwesomeIcon icon={faBookOpenReader} />
-        </span>
-      </div>
-    );
-  } else if (skillObj.level === "intermediate") {
-    return (
-      <div className="skill-card" style={{ backgroundColor: skillObj.color }}>
-        <span className="skill-name">
-          {skillObj.skill} <FontAwesomeIcon icon={faDumbbell} />
-        </span>
-      </div>
-    );
-  } else {
-    return (
-      <div className="skill-card" style={{ backgroundColor: skillObj.color }}>
-        <span className="skill-name">
-          {skillObj.skill} <FontAwesomeIcon icon={faStar} />
-        </span>
-      </div>
-    );
-  }
+  return (
+    <div className="skill-card" style={{ backgroundColor: skillObj.color }}>
+      <span className="skill-name">
+        {skillObj.skill}{" "}
+        {skillObj.level === "beginner" && (
+          <FontAwesomeIcon icon={faBookOpenReader} />
+        )}
+        {skillObj.level === "intermediate" && (
+          <FontAwesomeIcon icon={faDumbbell} />
+        )}
+        {skillObj.level === "expert" && <FontAwesomeIcon icon={faStar} />}
+      </span>
+    </div>
+  );
 }
